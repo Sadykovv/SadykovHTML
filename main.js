@@ -1,1 +1,5 @@
-alert("Hello");
+function aler(){
+
+    alert ("Здарова") ;  
+     
+    }
