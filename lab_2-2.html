@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="JQuery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input-wrapper.css">
     <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            $("#demoForm").validate();
+        });
+        $.validator.messages.required="Заполните поле";
+        $.validator.messages.minlength="Минимальная длина пароля 4 символа";
+        $.validator.messages.email="Формат email неверен";
+        $.validator.messages.message="Минимальная длина сообщения 10 символов";
+    </script>
 </head>
 <body>
-    
+    <form id="demoForm" method="get" action="">
+        <fieldset>
+            <div>
+                <label>Имя</label>
+                <em>*</em><input name="name" size="25" class="required" minlength="1"/>
+            </div>
+            <div>
+                <label>E-mail</label>
+                <em>*</em><input name="email" size="25" class="required email"/>
+            </div>
+            <div>
+                <label>Пароль</label>
+                <em>*</em><input name="password" size="25" class="required minlength" minlength="4"/>
+            </div>
+            <div>
+                <label>Подтверждение пароля</label>
+                <em>*</em><input name="secondpassword" size="25" class="required"/>
+            </div>
+        </fieldset>
+    </form>
 </body>
 </html>
+
