@@ -1,43 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <script type="text/javascript" src="JQuery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="input-wrapper.css">
     <title>Document</title>
+   
     <script>
         $(document).ready(function(){
             $("#demoForm").validate();
         });
         $.validator.messages.required="Заполните поле";
+        $.validator.messages.email="Формат ввода:*@*";
         $.validator.messages.minlength="Минимальная длина пароля 4 символа";
-        $.validator.messages.email="Формат email неверен";
-        $.validator.messages.message="Минимальная длина сообщения 10 символов";
     </script>
 </head>
 <body>
     <form id="demoForm" method="get" action="">
         <fieldset>
             <div>
-                <label>Имя</label>
-                <em>*</em><input name="name" size="25" class="required" minlength="1"/>
+                <p><em>*</em><input name="name" size="25" class="required" placeholder="Имя" /></p>
+                <script>$('[name="name"]').on("click keyup change blur", function() {
+                    if($(this).val().length < 1) { $(this).attr('style', 'border: 1px solid red;'); } else { $(this).attr('style', 'border: 1px solid green;'); }
+                    });</script>
             </div>
             <div>
-                <label>E-mail</label>
-                <em>*</em><input name="email" size="25" class="required email"/>
+                <p><em>*</em><input name="email" size="25" class="required email" placeholder="E-mail"/></p>
+                <script>$('[name="email"]').on("click keyup change blur", function() {
+
+                    if($(this).val().length < 1) { $(this).attr('style', 'border: 1px solid red;'); } else { $(this).attr('style', 'border: 1px solid green;'); }
+                    });
+                    </script>
+
+                    
+            </div>
+                
+            <style>
+                input[type=password]:invalid{
+                border: solid 1px red;
+                }
+                </style>
+                <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                var pass1 = document.querySelector('#password'),
+                pass2 = document.querySelector('#password-check')
+                pass1.addEventListener('input', function () {
+                this.value != pass2.value ? pass2.setCustomValidity('Password incorrect') : pass2.setCustomValidity('')
+                })
+                pass2.addEventListener('input', function (e) {
+                this.value != pass1.value ? this.setCustomValidity('Password incorrect') : this.setCustomValidity('')
+                })
+                })
+                </script>
+                <form class="form" action="address.txt" method="get">
+                <em>*</em><input id="password" name="password" type="password" placeholder="Пароль" minlength="4" class="required">
+                <script>$('[name="password"]').on("click keyup change blur", function() {
+                if($(this).val().length < 4) { $(this).attr('style', 'border: 1px solid red;'); }else { $(this).attr('style', 'border: 1px solid green;'); }
+                });</script>
+                <em>*</em><input id="password-check" name="password-check" type="password" placeholder="Подтверждение пароля" class="required" title="Пароли не совпадают">
+                </form>
+        
+            <div>
+            
+             <p><input name="topicofmessage" size="25" placeholder="Тема сообщения"/></p>
             </div>
             <div>
-                <label>Пароль</label>
-                <em>*</em><input name="password" size="25" class="required minlength" minlength="4"/>
+        
+               <p><input type="text" name="message" class="required" placeholder="Сообщение" minlength="10" title="Минимальное количество символов 10"/></p>
+                <script>$('[name="message"]').on("click keyup change blur", function() {
+                    if($(this).val().length < 10) { $(this).attr('style', 'border: 1px solid red;'); } else { $(this).attr('style', 'border: 1px solid green;'); }
+                    });</script>
             </div>
-            <div>
-                <label>Подтверждение пароля</label>
-                <em>*</em><input name="secondpassword" size="25" class="required"/>
-            </div>
+           <h3> <div><input type="submit" value="Отправить"/></div></h3>
+            <div><input type="reset" value="Очистить"/></div>
+
         </fieldset>
+        
     </form>
 </body>
 </html>
