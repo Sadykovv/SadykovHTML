@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="JQuery.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+          position: absolute;
+          background-color: rgb(85, 138, 131);
+          left: 390px;
+          width: 90px;
+          height: 90px;
+          margin: 270px;
+        }
+        </style>
+</head>
+<body>
+    <div class="drag"></div>
+ <script>
+$(document).ready(function(){
+
+let mouseIsPress=false;
+$(document).mousemove(function(event){
+if (mouseIsPress==true){
+ $(".drag").offset({top:event.pageY, left:event.pageX});
+ }
+   });
+ $(".drag").mousedown(function(){ 
+mouseIsPress=true;
+});
+  $(document).mouseup(function() {
+  mouseIsPress=false;
+});
+
+ });
+ </script>
+
+</body>
+</html>
