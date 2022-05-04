@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="JQuery.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+          background-color: #84c8ca;
+          font-size:16px; 
+          width:550px;
+        }
+       input {
+          margin: 5px;
+        }
+          </style>
+</head>
+<body>
+  
+        <fieldset class="pol">
+        <legend> Животные </legend>
+        <input type="radio" id="p1" class="com"
+            name="pol" value="Men">
+           <label for="p1">Кошки</label>
+       
+           <input type="radio" id="p2" class="com"
+            name="pol" value="Women">
+           <label for="p2">Собаки</label>
+       </fieldset>
+       
+        <fieldset class="age">
+        <legend>Игры  </legend>
+        <input type="radio" id="a1" class="com"
+            name="age" value="New">
+           <label for="a1">DOTA2</label>
+       
+           <input type="radio" id="a2" class="com"
+            name="age" value="Sred">
+           <label for="a2">CS GO</label>
+        </fieldset>
+          <fieldset class="weigth">
+        <legend> Прога </legend>
+        <input type="radio" id="w1" class="com"
+            name="weigth" value="New">
+           <label for="w1">C++</label>
+       
+           <input type="radio" id="w2" class="com"
+            name="weigth" value="Sred">
+           <label for="w2">C#</label>
+
+         </fieldset>
+       
+           <fieldset class="rost">
+        <legend> Мидер </legend>
+        <input type="radio" id="r1" class="com"
+            name="rost" value="New">
+           <label for="r1"> Dendi</label>
+       
+           <input type="radio" id="r2" class="com"
+            name="rost" value="Sred">
+           <label for="r2">Miracle</label>
+       
+         </fieldset>
+       
+        <button id='finish'>Закончить опрос</button>
+         </fieldset>
+       
+         <fieldset >
+         <legend> Вывод </legend>
+         <fieldset>
+          <legend> Животные </legend>
+         <p id="pm">Кошки</p>
+         <p id="pw">Собаки</p>
+          </fieldset>
+           <fieldset>
+            <legend> Игры </legend>
+         <p id="a11">Dota2</p>
+         <p id="a12">CS Go</p>
+          </fieldset>
+       
+           <fieldset>
+            <legend> Прога</legend>
+         <p id="w11">C++</p>
+         <p id="w12">C#</p>
+          </fieldset>
+       
+           <fieldset>
+            <legend> Мидер </legend>
+         <p id="r11">Dendi</p>
+         <p id="r12">Miracle</p>
+          </fieldset>
+       
+           <p id="user">Проголосовавших</p>
+       
+          </fieldset>
+       
+        <script type="text/javascript">
+       
+       $(document).ready(function(){
+       $('#finish').prop('disabled',true);
+       
+       
+       let i=0;
+       let users=1;
+       let p1=0;
+       let p2=0;
+       let a1=0;
+       let a2=0;
+       let a3=0;
+       let w1=0;
+       let w2=0;
+       let w3=0;
+       let r1=0;
+       let r2=0;
+       let r3=0;
+       
+       
+       $('#p1').change(function() {
+       p1++;
+       
+          $('.pol').attr('disabled', true);
+       
+       });
+       
+       $('#p2').change(function() {
+       p2++;
+       
+          $('.pol').attr('disabled', true);
+       });
+       
+       $('#a1').change(function() {
+       a1++;
+       $('.age').attr('disabled', true);
+       });
+       
+       $('#a2').change(function() {
+       a2++;
+       $('.age').attr('disabled', true);
+       });
+       
+       $('#a3').change(function() {
+       a3++;
+       $('.age').attr('disabled', true);
+       });
+       
+       $('#w1').change(function() {
+       w1++;
+       $('.weigth').attr('disabled', true);
+       });
+       
+       $('#w2').change(function() {
+       w2++;
+       $('.weigth').attr('disabled', true);
+       });
+       
+       $('#w3').change(function() {
+       w3++;
+       $('.weigth').attr('disabled', true);
+       });
+       
+       $('#r1').change(function() {
+       r1++;
+       $('.rost').attr('disabled', true);
+       });
+       
+       $('#r2').change(function() {
+       r2++;
+       $('.rost').attr('disabled', true);
+       });
+       
+       $('#r3').change(function() {
+       r3++;
+       $('.rost').attr('disabled', true);
+       });
+       
+       $('.com').change(function() {
+       
+       $("#pm").text("Кошки: " + p1/users + "%");
+       $("#pw").text("Собаки: " + p2/users + "%");
+       $("#a11").text("Dota2: " + a1/users + "%");
+       $("#a12").text("CS GO: " + a2/users + "%");
+       $("#w11").text("C++: " + w1/users + "%");
+       $("#w12").text("C#: " + w2/users + "%");
+       $("#r11").text("Dendi: " + r1/users + "%");
+       $("#r12").text("Miracle: " + r2/users + "%");
+       $("#user").text("Проголосовавших: " + users );
+       
+       i++;
+       
+       if (i==4){
+       $('#finish').prop('disabled',false);
+       }else{
+       $('#finish').prop('disabled',true);
+       }
+       });
+       
+       
+       $('#finish').on('click', function(){
+       users++;
+       i=0;
+       $('#finish').prop('disabled',true);
+       $('.com').prop('checked',false);
+       $('.pol').attr('disabled', false);
+       $('.age').attr('disabled', false);
+       $('.weigth').attr('disabled', false);
+       $('.rost').attr('disabled', false);
+        });
+        });
+        </script>
+       
+</body>
+</html>
