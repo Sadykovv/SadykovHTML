@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="JQuery.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+        <input id="input" class="inputDisplay" style="width:215px;height:50px">
+
+    <table>
+        <tr>
+           <td><button id="clear" class="button">C</button>
+            <button id="delete" class="button"><<</button>
+            <button id="divide" class="button">/</button>
+            <button id="mult" class="button">X</button>
+            <button id="degree" class="button">^</button>
+        </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="7" class="button">7</button>
+                <button id="8" class="button">8</button>
+                <button id="9" class="button">9</button>
+                <button id="minus" class="button">-</button>
+            </td>
+    </tr>
+        <tr>
+           <td>
+            <button id="4" class="button">4</button>
+            <button id="5" class="button">5</button>
+            <button id="6" class="button">6</button>
+            <button id="plus" class="button">+</button>
+           </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="1" class="button">1</button>
+                <button id="2" class="button">2</button>
+                <button id="3" class="button">3</button>
+                <button id="point" class="button">.</button>
+            </td>
+
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+            <td><button id="0" class="button">0 </button>
+            <button id="equal" class="button" style="background-color:grey;width:155px">=</button></td>
+        </tr>
+        </tr>
+        </table>
+        <script>
+            $('#1').click(function(){
+                document.getElementById('input').value+="1" 
+            });
+            $('#2').click(function(){
+                document.getElementById('input').value+="2" 
+            });
+            $('#3').click(function(){
+                document.getElementById('input').value+="3" 
+            });
+            $('#4').click(function(){
+                document.getElementById('input').value+="4" 
+            });
+            $('#5').click(function(){
+                document.getElementById('input').value+="5" 
+            });
+            $('#6').click(function(){
+                document.getElementById('input').value+="6" 
+            });
+            $('#7').click(function(){
+                document.getElementById('input').value+="7" 
+            });
+            $('#8').click(function(){
+                document.getElementById('input').value+="8" 
+            });
+            $('#9').click(function(){
+                document.getElementById('input').value+="9" 
+            });
+            $('#0').click(function(){
+                document.getElementById('input').value+="0" 
+            });
+            $('#plus').click(function(){
+                document.getElementById('input').value+="+" 
+            });
+            $('#minus').click(function(){
+                document.getElementById('input').value+="-" 
+            });
+            $('#degree').click(function(){
+                document.getElementById('input').value+="**"
+            });
+            $('#delete').click(function(){
+                document.getElementById('input').value=document.getElementById('input').value.slice(0,-1); 
+            });
+            $('#clear').click(function(){
+                document.getElementById('input').value=""; 
+            });
+            $('#point').click(function(){
+                document.getElementById('input').value+="." 
+            });
+            $('#divide').click(function(){
+                document.getElementById('input').value+="/"
+            });
+            $('#mult').click(function(){
+                document.getElementById('input').value+="*"
+            });
+            $('#equal').click(function(){
+                document.getElementById('input').value=eval(document.getElementById('input').value)
+            });
+        </script>
+</body>
+</html>
