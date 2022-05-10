@@ -12,12 +12,25 @@
     flex-wrap:wrap;
 }
 
+.news{
+    color:white;
+    font-size: 100px;
+}
 .color{
     flex:25%;
     min-height: 220px;
     background-color: rgb(243, 243, 247) ;
     transition: .4s linear;
     cursor:pointer;
+}
+
+.buttonlab3
+{
+    position:fixed;
+    left:610px;
+    width: 200px;
+    font-size: 25px;
+    bottom:30px;
 }
 
 .button
