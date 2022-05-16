@@ -60,8 +60,8 @@
     let k=0;
     var count=0;
     var i=0;
-    var tek=0
-    var ids=0
+    var tek=0;
+    var ids=0;
     var circle=5;
     var n=5;
 
@@ -76,7 +76,7 @@
         let obj =JSON.parse(data)
 
         for (var q=0;q<n;q++){
-            $('com').append("<fieldset class='f' id='f1'> <h2 id=h"+ids+" class='gg'> Заголовок</h2> <p id =p"+ids+"></p> <img class='n' id =img"+ids+" width='700' height='500' alt='1'></fieldset>");
+            $('.com').append("<fieldset class='f' id='f1'> <h2 id=h"+ids+" class='gg'> Заголовок</h2> <p id =p"+ids+"></p> <img class='n' id =img"+ids+" width='700' height='500' alt='1'></fieldset>");
             $("#h"+ids).text(obj.header[q]);
             $("#p"+ids).text(obj.wall[q]);
             $("#img"+ids).prop('src',obj.img[q]);
