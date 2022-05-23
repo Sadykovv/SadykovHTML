@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="JQuery.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    $.validator.messages.required="Заполните поле";
+    </script>
+    <style>
+    fieldset.gen {
+        background-color: #ffcc00;
+        font-size:24px; 
+        padding:10px; 
+        width:750px;
+      position: absolute;
+          top: 0%;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius:6px;
+      }
+
+fieldset.gen2{
+    background-color: #ffcc00;
+        font-size:24px; 
+        padding:10px; 
+        width:550px;
+      position: absolute;
+          top: 600px;
+          left: 50%;
+          transform: translateX(-50%); 
+}
+
+      button.fin {
+      background-color: orange;
+      color:white;
+      padding:10px;
+      margin: 15px;
+       position: relative;
+      left: 5%;
+      transform: translate(-50%, 0);
+      }
+      
+      fieldset.com {
+         background-color: orange;
+        font-size:20px; 
+        padding:230px; 
+        border-radius:6px;
+      }
+      fieldset.com2 {
+         background-color: orange;
+        font-size:20px; 
+        padding:22px; 
+      }
+      fieldset.f {
+      margin: 10px;
+        background-color: orange;
+        font-size:16px; 
+        padding:30px; 
+      }
+      
+      input {
+        margin: 5px;
+      }
+
+      
+       </style>
+</head>
+</head>
+<body bgcolor="#ffcc00">
+    
+    <fieldset class="gen">
+        <fieldset class="com">
+            <p style="position:absolute;left:20px;top:60px;font-style: italic"><b>Имя</b></p>
+        
+            <input style="position:absolute;left:20px;top:80px;border-radius:6px;"  type="text" size="40" id="name" class="required" >
+           
+            <p style="position:absolute;left:20px;top:120px;font-style:italic"><b>Email</b></p>
+            <input style="position:absolute;left:20px;top:140px;border-radius:6px;"  type="text" size="40" id="email" class="required">
+            <p style="position:absolute;left:20px;top:170px;font-style:italic"><b>Сообщение</b></p>
+            <textarea cols="50" rows="15" style="position:absolute;left:20px;top:200px;border-radius:6px;"id="message"></textarea>
+            <p style="position:absolute;left:20px;top:410px;font-style:italic"><b>Введите код с картинки</b></p>
+            <input style="position:absolute;left:20px;top:440px;border-radius:6px;"  type="text" size="40" id="code" class="required">
+            <p style="position:absolute;top:440px;left:250px">555</p>
+        </fieldset>
+        <button id='load' class="fin" style="border-radius:6px">Отправить</button>
+        </fieldset>
+        <fieldset class="gen2">
+            <fieldset class="com2"></fieldset>
+        </fieldset>
+        <label class="guestbook">Гостевая <br> книга</label>
+    
+        <script>
+            $(document).ready(function()
+            {
+                var name="";
+                var email="";
+                var message="";
+                var ids=0;
+                $.ajax({
+                    type:"GET",
+                    url:"getdata_3b.php"
+                }).done(function (data)
+                {
+                    let obj = JSON.parse(data)
+					for (var q = 0; q < obj.names.length; q++) {  
+						$('.com2').prepend("<fieldset class='f' id='f1'>  <h2 id=h"+ids+" class='gg'></h2> <p id=t"+ids+"></p> <p id=p"+ids+"></p> </fieldset>");
+						$( "#h"+ids ).text(obj.names[q]);
+						$( "#p"+ids ).text(obj.messages[q]);
+                        $( "#t"+ids ).text(obj.emails[q]);
+						ids++;
+                    }
+                });
+
+                $('#load').on('click',function(){
+                    name=$("#name").val();
+                    email=$("#email").val();
+                    message=$("#message").val();
+                    const namejson=JSON.stringify(name);
+                    const emailjson=JSON.stringify(email);
+                    const messagejson=JSON.stringify(message);
+
+                    $.ajax({
+                        type:"GET",
+                        url: "setdata_3b.php",
+                        data: {sname:namejson,semail:emailjson,smessage:messagejson}
+                    }).done(function(data)
+                    {
+                        alert("message: "+data);
+                        $("#name").val('');
+                        $("#email").val('');
+                        $("#message").val('');
+                    });
+                });
+            });
+        
+        </script>
+    
+</body>
+</html>

@@ -16,6 +16,12 @@
     color:white;
     font-size: 100px;
 }
+
+.guestbook{
+    color:white;
+    font-size:70px;
+}
+
 .color{
     flex:25%;
     min-height: 220px;
@@ -50,6 +56,4 @@ height: 50px;
     cursor: pointer;
     transition: .4s linear;
 }
-
-
 
