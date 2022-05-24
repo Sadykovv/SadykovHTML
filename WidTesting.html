@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="JQuery.js"></script>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <style>
+        .ui-menu{width:150px;}
+        .list-group-item{cursor:move;width: 150px;}
+    </style>
+    <script>
+        $(function()
+        {
+            $("#accordion").accordion({
+                collapsible:true,
+                animate:200
+            
+            });
+            var avialableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Java",
+                "JavaScript",
+                "C",
+                "C++"
+            ];
+            $("#tags").autocomplete({
+                source: avialableTags,
+                minLength:3
+            });
+            $("#date").datepicker({
+                dateFormat:'dd.mm.yy',
+            });
+            $("#dialog").dialog({
+            autoOpen:false,
+            show: {effect:"bounce", duration:800},
+            hide: {effect:"drop", duration:800},
+            });
+            $("#open").click(function(){
+                $("#dialog").dialog("open");
+            });
+            $("#select").selectmenu();
+            $("#menu").menu();
+            $("#slider").slider({
+                range:true,
+                min:0,
+                max:1000,
+                step:10,
+                values:[50,500],
+                slide: function(event,ui){
+                    $('#start').val(ui.values[0]);
+                    $('#end').val(ui.values[1]);
+                }
+            });
+            $('#start').val($('#slider').slider('values',0));
+            $('#end').val($('#slider').slider('values',1));
+            $('#tabs').tabs({
+                show:{effect:"fade",
+                duration:300},hide:{effect:"fade",
+                duration:300},
+            });
+            $("td.td_top ").tooltip();
+            $("#sort").sortable();
+            $(".draggable").draggable();
+        });
+    </script>
+</head>
+<body>
+    <div class="container content">
+    <div class id="accordion">
+        <h3>Секция 1</h3>
+        <div>
+            <p>Lorem ipsum dolor sot amet</p>
+        </div>
+        <h3>Секция 2</h3>
+        <div>
+            <p>Lorem ipsum dolor sot amet</p>
+        </div>
+        <h3>Session 3</h3>
+        <div>
+            <p>Lorem ipsum dolor sot amet</p>
+            <ul>
+                <li>List 1</li>
+                <li>List 2</li>
+                <li>List 3</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+    <div class ="ui-widget">
+        <label for="tags">Tags:</label>
+        <input id="tags">
+    </div>
+    <div class="container-content">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="date">Дата:</label>
+                <input type="text" class="form-control" id="date">
+            </div>
+        </form>
+    </div>
+    <div id="dialog" title="Basic dialog">
+        <p>This is default dialog which is useful for...</p>
+    </div>
+    <button class="btn btn-success" id="open">Open window</button>
+    <select id="select">
+        <option>item 1</option>
+        <option>item 2</option>
+        <option>item 3</option>
+        <option>item 4</option>
+        <option>item 5</option>
+    </select>
+    <ul id="menu">
+        <li><div><a href="#">Books</a></div></li>
+        <li><div><a href="#">Books</a></div></li>
+        <li><div><a href="#">Books</a></div>
+        <ul>
+            <li><div><a href="#">Books</a></div></li>
+            <li><div><a href="#">Books</a></div></li>
+        </ul>
+        </li>
+    </ul>
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="start">Start price</label>
+                        <input type="text" name="start" class="form-control" id="start">
+                    </div>
+                    <div class="form-group">
+                        <label for="start">End price</label>
+                        <input type="text" name="end" class="form-control" id="end">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="slider"></div>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Vkladka1</a></li>
+            <li><a href="#tabs-2">Vkladka2</a></li>
+            <li><a href="#tabs-3">Vkladka3</a></li>
+        </ul>
+        <div id="tabs-1">
+            <h2>Content 1</h2>
+            <p>ONE</p>
+        </div>
+        <div id="tabs-2">
+            <h2>Content 2</h2>
+            <p>two</p>
+        </div>
+        <div id="tabs-3">
+            <h2>Content 3</h2>
+            <p>three</p>
+        </div>
+    </div>
+    <h2>
+        Content 123
+        <p>LOREM POM CER DER><a href="#" title="Текст подсказки">sit amet</a>,consecteturwf </p>
+    </h2>
+    <ul id="sort" class="list-group">
+        <li class="list-group-item"><a href="#">item1</a></li>
+        <li class="list-group-item"><a href="#">item2</a></li>
+        <li class="list-group-item"><a href="#">item3</a></li>
+        <li class="list-group-item"><a href="#">item4</a></li>
+        <li class="list-group-item"><a href="#">item5</a></li>
+    </ul>
+    <div class="draggable">
+        <p>Block</p>
+    </div>
+</body>
+</html>
