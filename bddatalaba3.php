@@ -43,5 +43,5 @@ $img=array("1news.jpeg",
 "forza.jpeg",
 "WD.jpeg",
 "insect.jpeg",
-"9may");
+"9may.webp");
 ?>
