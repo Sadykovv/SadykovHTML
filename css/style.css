@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: url("../img/bg.jpg") center no-repeat;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position:center ;
+    width: 100%;
+    height: 88vh;
+    overflow: hidden;
+  
+}
+.container{
+    position: relative;
+}
+.cursor, .getit{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    z-index: 5;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    opacity: 0;
+}
+.getit{
+    z-index: 100;
+    opacity: 0;
+}
+
+button{
+    border-radius: 10px;
+    font-size:32px ;
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,110%);
+    z-index: 1  ;
+}
+.badguy{ 
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,150%);
+    z-index: 2  ;
+    transition: all 1s;
+}
